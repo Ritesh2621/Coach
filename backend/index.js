@@ -12,6 +12,8 @@ const app = express();
 // Import routers
 
 import { UserRouter } from "./Routes/user.js";
+import { CourseRouter } from "./Routes/course.js";
+
 
 
 // Middleware setup
@@ -24,9 +26,14 @@ app.use(cookieParser());
 
 
 app.use("/auth", UserRouter);
+app.use("/course", CourseRouter);
+
+
+
+
 
 // MongoDB connection using environment variables
-mongoose.connect('mongodb+srv://learnopedia292:Space292@cluster0.fouse.mongodb.net/Coach?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://learnopedia292:Space292@cluster0.7ghql.mongodb.net/')
   .then(() => {
     console.log("MongoDB connected");
   })
