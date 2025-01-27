@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { PiDotsSixLight } from "react-icons/pi";
 
 const CourseDropdown = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -30,6 +31,23 @@ const CourseDropdown = () => {
     return acc;
   }, {});
 
+  // List of allowed categories
+  const allowedCategories = [
+    "Business Analytics",
+    "Data Engineering",
+    "Data Science",
+    "Data Analytics",
+    "Cloud Computing",
+  ];
+
+  // Filter only the allowed categories from groupedCourses
+  const filteredGroupedCourses = Object.keys(groupedCourses)
+    .filter(category => allowedCategories.includes(category))
+    .reduce((acc, category) => {
+      acc[category] = groupedCourses[category];
+      return acc;
+    }, {});
+
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   const handleSubMenuToggle = (index) => {
@@ -48,12 +66,12 @@ const CourseDropdown = () => {
   return (
     <div className="relative">
       <button
-        className="bg-[#E6F9FF] text-[#002E3A] px-4 py-2 rounded-lg"
+        className="bg-[#ebfeff] text-[#002E3A] px-4 py-3 font-semibold gap-2 w-[170px] rounded-lg flex items-center justify-center"
         onClick={toggleDropdown}
       >
+        <PiDotsSixLight className="font-bold text-xl"/>
         All Courses
       </button>
-
 
       {dropdownOpen && (
         <div
@@ -61,25 +79,24 @@ const CourseDropdown = () => {
           onMouseLeave={closeDropdowns}
         >
           <ul className="flex flex-col">
-            {Object.keys(groupedCourses).map((category, index) => (
+            {Object.keys(filteredGroupedCourses).map((category, index) => (
               <li
                 key={index}
                 className="relative group hover:text-blue-500"
                 onMouseEnter={() => setActiveSubMenu(index)} 
                 onMouseLeave={() => setActiveSubMenu(null)} 
               >
-           
-                <button className="w-full text-left px-4 py-2 0 flex justify-between items-center cursor-pointer">
+                <button className="w-full text-left px-4 py-3 flex justify-between items-center cursor-pointer">
                   {category} 
                   <span className="ml-2 text-sm">▶️</span>
                 </button>
 
-                {activeSubMenu === index && groupedCourses[category] && (
+                {activeSubMenu === index && filteredGroupedCourses[category] && (
                   <div className="absolute left-full top-0 mt-[-8px] bg-[#212529] shadow-lg rounded-lg w-[350px] z-20">
                     <ul className="flex flex-col">
-                      {groupedCourses[category].map((course, subIndex) => (
+                      {filteredGroupedCourses[category].map((course, subIndex) => (
                         <Link
-                        to={`/course/${course._id}`}
+                          to={`/course/${course._id}`}
                           key={subIndex}
                           className="px-4 py-2 text-white hover:text-blue-500 cursor-pointer"
                         >

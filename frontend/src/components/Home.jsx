@@ -22,7 +22,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-[#f2fcff]">
+    <div className="">
       <div className={`bg-[#005068] h-[400px] p-3 ${showForm ? "blur-md" : ""}`}>
         <div className="ml-16 mt-6">
           <p className="text-white mb-3">IIT Mumbai Alumni Initiative</p>
@@ -59,11 +59,11 @@ const Home = () => {
             <div className="flex justify-between items-center mb-4">
               <div className="flex flex-col items-center">
                 <FaPhoneAlt className="text-[#005068] text-2xl mb-2" />
-                <p className="text-lg font-semibold">+91-7378757330</p>
+                <p className="text-lg font-semibold">+91-8484845774</p>
               </div>
               <p className="text-gray-500 text-lg font-semibold">OR</p>
               <button className="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-lg font-semibold">
-                <FaWhatsapp className="text-xl" /> WhatsApp Us
+                <FaWhatsapp onClick={handleWhatsAppChat} className="text-xl" /> WhatsApp Us
               </button>
             </div>
             <p className="text-center font-bold text-xl mb-4">

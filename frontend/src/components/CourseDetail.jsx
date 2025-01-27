@@ -1,37 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { FaAward } from "react-icons/fa";
+import { LuTimerReset } from "react-icons/lu";
+import { BsBagDashFill } from "react-icons/bs";
+import { IoIosPeople } from "react-icons/io";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { MdHeadsetMic } from "react-icons/md";
+import { FaRegThumbsUp } from "react-icons/fa6";
+import { CiCreditCard1 } from "react-icons/ci";
+import { GoDeviceCameraVideo } from "react-icons/go";
+import { FaGraduationCap } from "react-icons/fa6";
+
 
 const CourseDetail = () => {
   const features = [
-    { text: '100% Live Interactive Learning', icon: '👥' },
-    { text: '100% Placement Assistance', icon: '🎓' },
-    { text: 'Complete Session Recordings', icon: '📹' },
-    { text: 'Industry Recognized Certificate Upon Course Completion', icon: '📜' },
-    { text: 'Easy EMI Payment Options', icon: '💳' },
-    { text: '24 X 7 Lifetime Support', icon: '🎧' },
-    { text: 'Hands-On Project Based Learning', icon: '🛠️' },
-    { text: 'Interview Preparation Guidance', icon: '👍' },
-    { text: 'LinkedIn Profile Building Guidance', icon: '🔗' },
+    { text: '100% Live Interactive Learning', icon: <IoIosPeople /> },
+    { text: '100% Placement Assistance', icon: <FaGraduationCap/> },
+    { text: 'Complete Session Recordings', icon: <GoDeviceCameraVideo/> },
+    { text: 'Industry Recognized Certificate Upon Course Completion', icon: <FaAward/> },
+    { text: 'Easy EMI Payment Options', icon: <CiCreditCard1/> },
+    { text: '24 X 7 Lifetime Support', icon:<MdHeadsetMic/> },
+    { text: 'Hands-On Project Based Learning', icon:<HiOutlineLightBulb/> },
+    { text: 'Interview Preparation Guidance', icon: <FaRegThumbsUp/> },
+    { text: 'LinkedIn Profile Building Guidance', icon: <FaRegThumbsUp/> },
   ];
-  const { id } = useParams();  // Get the course ID from the URL parameter
+  const { id } = useParams();  
   const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(true);  // Loading state
 
   useEffect(() => {
     const fetchCourseDetail = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/course/course/${id}`);  // Fetch course data by ID
+        setLoading(true); // Set loading to true when starting fetch
+        const response = await fetch(`http://localhost:4000/course/course/${id}`);
         const data = await response.json();
-        setCourse(data);  // Set the fetched course data in state
+        setCourse(data);  // Set course data
+        setLoading(false);  // Set loading to false after data is fetched
       } catch (error) {
         console.error('Error fetching course details:', error);
+        setLoading(false);  // Set loading to false if there's an error
       }
     };
 
     fetchCourseDetail();
   }, [id]);  
 
-  if (!course) {
-    return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div className="flex flex-col items-center">
+          <div className="animate-spin border-t-4 border-blue-600 border-solid rounded-full w-16 h-16 mb-4"></div>
+          <p className="text-xl font-semibold text-gray-800">Loading product details...</p>
+        </div>
+      </div>
+    );
   }
 
   // Parse the syllabus JSON string (if it's a string)
@@ -52,7 +74,7 @@ const CourseDetail = () => {
 
         <div className="flex flex-col md:flex-row bg-[#f2fcff] p-4 my-4">
           {/* Left Section */}
-          <div className="bg-gradient-to-br from-blue-900 to-purple-900 text-white p-6 rounded-lg flex-1">
+          <div className="bg-gradient-to-br from-blue-900 to-purple-500 text-white p-6 rounded-lg flex-1">
             <h2 className="text-2xl font-bold mb-4">
               Professional Certification Program In
             </h2>
@@ -61,21 +83,21 @@ const CourseDetail = () => {
             </h1>
             <ul className="mt-6 space-y-2">
               <li className="flex items-center">
-                <img src="icon1.png" alt="icon" className="w-6 h-6 mr-2" />
+                <FaAward className="w-6 h-6 mr-2"/>   
                 <span>100% Placement Assistance</span>
               </li>
               <li className="flex items-center">
-                <img src="icon2.png" alt="icon" className="w-6 h-6 mr-2" />
+              <LuTimerReset className="w-6 h-6 mr-2"/>  
                 <span>Convenient Weekend Timings</span>
               </li>
               <li className="flex items-center">
-                <img src="icon3.png" alt="icon" className="w-6 h-6 mr-2" />
+              <BsBagDashFill className="w-6 h-6 mr-2"/>
                 <span>Get Hired by Top Organizations</span>
               </li>
             </ul>
-            <button className="mt-8 bg-pink-500 text-white font-bold py-2 px-4 rounded hover:bg-pink-600">
+            <p className="mt-8 bg-pink-500 text-white w-[120px] font-bold py-2 px-4 text-center rounded hover:bg-pink-600">
               Join Now
-            </button>
+            </p>
           </div>
 
           {/* Right Section */}
@@ -176,14 +198,14 @@ const CourseDetail = () => {
         </div>
 
         {/* Syllabus Section */}
-        <div className="syllabus-section py-6">
-          <h3 className="text-2xl font-bold mb-4">Course Syllabus</h3>
+        <div className="syllabus-section py-6 bg-white shadow-lg rounded-xl mx-auto p-6 my-6">
+          <h3 className="text-2xl font-bold mb-4">Program Curriculum</h3>
           {syllabus.modules && syllabus.modules.map((module, index) => (
             <div key={index} className="module mb-6">
               <h4 className="text-xl font-semibold">{module.module}</h4>
               <ul className="list-disc pl-6">
                 {module.topics.map((topic, idx) => (
-                  <li key={idx} className="text-lg text-gray-700">{topic}</li>
+                  <li key={idx} className="text-lg text-gray-700 ml-8 py-2 mt-2">{topic}</li>
                 ))}
               </ul>
             </div>
@@ -191,15 +213,15 @@ const CourseDetail = () => {
         </div>
 
         <div className="py-10">
-          <h2 className="text-center text-2xl font-semibold mb-6">Key Course Features</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
+          <h2 className=" text-2xl font-semibold mb-6">Key Course Features</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 bg-white shadow-md rounded-lg p-4"
+                className="flex items-center gap-4 bg-white shadow-md  rounded-lg p-5"
               >
-                <div className="text-blue-500 text-3xl">{feature.icon}</div>
-                <p className="text-gray-700 font-normal">{feature.text}</p>
+                <div className="text-[#21b9df] bg-[#cdfafe] p-2 rounded-full text-4xl">{feature.icon}</div>
+                <p className="text-gray-700 font-semibold ml-2">{feature.text}</p>
               </div>
             ))}
           </div>
