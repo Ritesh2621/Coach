@@ -6,6 +6,7 @@ import CourseDetail from './components/CourseDetail.jsx';
 import Login from './components/Login.jsx';
 import AllCourse from './components/AllCourse.jsx';
 import Footer from './components/Footer.jsx';
+import SuccessStories from './components/SuccessStories.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path='/login' element={<Login/>} />
       <Route path="/course/:id" element={<CourseDetail/>} />
       <Route path="allCourses" element={<AllCourse/>} />
+      <Route path="successStories" element={<SuccessStories/>} />
     </Routes>
     <Footer/>
    </Router>

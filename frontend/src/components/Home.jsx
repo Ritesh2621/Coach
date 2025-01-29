@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { BiPhoneCall } from "react-icons/bi";
+import { IoChatboxOutline } from "react-icons/io5";
 import OurStudent from "../assets/OurStudent.jpeg";  // Image import
 import CourseDropdown from "./CourseDropdown"; // Import the new component
 import Card from "./Card";
-import whatsapp from "../assets/whatsapp.png";
+
 
 const Home = () => {
   const [showForm, setShowForm] = useState(false);
@@ -19,6 +21,10 @@ const Home = () => {
       message
     )}`;
     window.open(whatsappUrl, "_blank");
+  };
+  const handleLiveChat = () => {
+  
+    window.open("https://tawk.to/chat/630c875337898912e965ea57/1gbkf18jg", "_blank");
   };
 
   return (
@@ -127,13 +133,28 @@ const Home = () => {
     <Card/>
         </div>
       </div>
-      <button
-        onClick={handleWhatsAppChat}
-        className="fixed bottom-5 right-5 bg-green-700 text-white p-1.5 rounded-full shadow-lg transition-transform transform hover:scale-110 flex items-center justify-center"
-        aria-label="Chat with us on WhatsApp"
-      >
-        <img src={whatsapp} alt="WhatsApp" className="w-14 h-14" />
-      </button>
+
+      <div className="w-full flex justify-between h-[60px] bg-[#3fbdeb]  p-2 fixed bottom-0 left-0 z-50">
+  <div className="w-[30%] text-xl text-white flex items-center justify-center rounded-lg cursor-pointer  transition duration-200">
+    <BiPhoneCall className="w-6 h-6 mr-2 text-green-700" />
+    Call Now
+  </div>
+  <div className="h-full flex items-center justify-center text-white">|</div>
+  <div onClick={handleWhatsAppChat} className="w-[30%] text-white text-xl flex items-center  justify-center rounded-lg cursor-pointer transition duration-200">
+    <FaWhatsapp className="w-7 h-7 mr-2 text-green-700" />
+    WhatsApp
+  </div>
+  <div className="h-full flex items-center justify-center text-white">|</div>
+  <div onClick={handleLiveChat} className="w-[30%] text-white text-xl flex items-center justify-center rounded-lg cursor-pointer  transition duration-200">
+    <IoChatboxOutline className="w-6 h-6 mr-2 text-red-600 " />
+    Live Chat
+  </div>
+</div>
+
+
+
+
+    
     </div>
   );
 };

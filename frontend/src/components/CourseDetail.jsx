@@ -64,6 +64,15 @@ const CourseDetail = () => {
     console.error('Error parsing syllabus JSON:', error);
   }
 
+  const handleWhatsAppChat = () => {
+    const phoneNumber = "8484845774";
+    const message = "Hello! I have a question about your services."; // Default message
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <div className="course-detail-container flex flex-col items-center bg-[#f2fcff]">
       <div className='w-[65%] p-4'>
@@ -143,6 +152,18 @@ const CourseDetail = () => {
             <button className="mt-6 bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 w-full">
               Register Now
             </button>
+          </div>
+        </div>
+
+      
+        <div className="bg-[#063246] text-white py-3 text-center flex justify-around items-center mt-6 rounded-lg">
+          <div className='w-[50%] mx-auto'>
+          <span className="text-2xl font-bold mr-4">
+            Need Career Guidance?
+          </span>
+          <button onClick={handleWhatsAppChat} className="bg-[#17A2B8] text-white text-lg font-bold px-4 py-2 rounded-lg hover:bg-[#138496] transition">
+            Talk To An Expert
+          </button>
           </div>
         </div>
 

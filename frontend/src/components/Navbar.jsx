@@ -19,10 +19,10 @@ const Navbar = () => {
 
           {/* Right side content */}
           <div className="flex items-center gap-4 mt-6">
-            <button className="bg-[#ebfeff] text-[#002E3A] px-4 py-3 font-semibold gap-2 w-[170px] rounded-lg flex items-center">
+            <Link to="/successStories" className="bg-[#ebfeff] text-[#002E3A] px-4 py-3 font-semibold gap-2 w-[170px] rounded-lg flex items-center">
               <BiSolidPhoneCall className="font-bold" />
               Success Stories
-            </button>
+            </Link>
             <Link
               to="/login"
               className="bg-[#ebfeff] text-[#002E3A] px-4 py-3 font-semibold gap-2 w-[170px] rounded-lg flex items-center justify-center"

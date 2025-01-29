@@ -13,6 +13,7 @@ const app = express();
 
 import { UserRouter } from "./Routes/user.js";
 import { CourseRouter } from "./Routes/course.js";
+import { StoriesRouter } from "./Routes/story.js";
 
 
 
@@ -27,6 +28,7 @@ app.use(cookieParser());
 
 app.use("/auth", UserRouter);
 app.use("/course", CourseRouter);
+app.use("/story", StoriesRouter);
 
 
 

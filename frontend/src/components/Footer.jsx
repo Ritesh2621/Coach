@@ -8,8 +8,8 @@ const Footer = () => {
         <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div class="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
             <div class="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-              <p className="text-2xl  font-bold font-mono">
-                LearnopediaX
+              <p className="text-2xl  font-bold font-serif">
+                Learnopedia <span className="text-3xl">X</span> 
               </p>
               <p class="text-base leading-relaxed w-[230px] mt-7">
               Your online learning partner!!!
@@ -132,12 +132,12 @@ const Footer = () => {
               <p>The Space Kharadi</p>
               <p>Pune</p>
 
-              <p className="mt-6">+91-8484847595</p>
+              <p className="mt-6">+91-8484845774</p>
 
               <ul class="flex items-center space-x-3 mt-6">
                 <li>
                   <Link
-                    href="#"
+                     to="https://www.x.com"
                     title=""
                     class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
@@ -154,7 +154,7 @@ const Footer = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    to="https://www.facebook.com"
                     title=""
                     class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
@@ -171,7 +171,7 @@ const Footer = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    to="https://www.instagram.com"
                     title=""
                     class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
@@ -190,7 +190,7 @@ const Footer = () => {
 
                 <li>
                   <Link
-                    href="#"
+                    to="https://www.github.com"
                     title=""
                     class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
