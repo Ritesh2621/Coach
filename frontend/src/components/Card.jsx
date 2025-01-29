@@ -41,67 +41,63 @@ const Card = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
-        {displayedCourses.map((course) => (
-          <Link to={`/course/${course._id}`} key={course._id}>
-            <div className="max-w-sm rounded-lg overflow-hidden h-[700px] shadow-lg bg-white border border-gray-200">
-              <div className="relative">
-                <div className="flex flex-col items-center justify-center h-[400px] bg-gradient-to-b from-blue-900 to-black text-white p-8 rounded-2xl shadow-xl max-w-md mx-auto">
-                  {/* AI Icon and Title */}
-                  <div className="flex flex-col items-center mb-6">
-                   
-                    <h1 className="text-lg font-bold text-center">Professional Certification Program In</h1>
-                    <h2 className="text-2xl font-extrabold text-white">{course.title}</h2>
-                  </div>
-
-                  {/* Features */}
-                  <ul className="text-left space-y-4 mb-6">
-                    <li className="flex items-center space-x-2">
-            
-                      <span>100% Placement Assistance</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-            
-                      <span>Convenient Weekend Timings</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-          
-                      <span>Get Hired by Top Organizations</span>
-                    </li>
-                  </ul>
-
-                
-                  <p className="bg-orange-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-orange-600 transition">
-                    JOIN NOW
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-gray-900">{course.title}</h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  {course.description.length > 200
-                    ? `${course.description.slice(0, 200)}...`
-                    : course.description}
-                </p>
-
-                <div className="flex items-center mt-3">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-400" />
-                  ))}
-                  <span className="ml-2 text-sm font-semibold text-gray-700">
-                    {course.rating}
-                  </span>
-                </div>
-
-                <button className="mt-4 w-full bg-blue-400 text-white text-sm font-semibold py-2 rounded-md shadow-md hover:bg-blue-600 transition">
-                  Ready To Join?
-                </button>
-              </div>
+     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  {displayedCourses.map((course) => (
+    <Link to={`/course/${course._id}`} key={course._id}>
+      <div className="max-w-sm rounded-lg overflow-hidden h-[700px] shadow-lg bg-white border border-gray-200 flex flex-col">
+        <div className="relative flex-grow">
+          <div className="flex flex-col items-center justify-center bg-gradient-to-b from-blue-900 to-black text-white p-8 rounded-2xl shadow-xl max-w-md mx-auto h-full">
+            {/* AI Icon and Title */}
+            <div className="flex flex-col items-center mb-6">
+              <h1 className="text-lg font-bold text-center">Professional Certification Program In</h1>
+              <h2 className="text-2xl font-extrabold text-white">{course.title}</h2>
             </div>
-          </Link>
-        ))}
+
+            {/* Features */}
+            <ul className="text-left space-y-4 mb-6">
+              <li className="flex items-center space-x-2">
+                <span>100% Placement Assistance</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span>Convenient Weekend Timings</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span>Get Hired by Top Organizations</span>
+              </li>
+            </ul>
+
+            <p className="bg-orange-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-orange-600 transition">
+              JOIN NOW
+            </p>
+          </div>
+        </div>
+
+        <div className="p-5 flex flex-col justify-between flex-grow">
+          <h3 className="text-lg font-bold text-gray-900">{course.title}</h3>
+          <p className="text-gray-600 text-sm mt-2">
+            {course.description.length > 200
+              ? `${course.description.slice(0, 200)}...`
+              : course.description}
+          </p>
+
+          <div className="flex items-center mt-3">
+            {[...Array(5)].map((_, i) => (
+              <FaStar key={i} className="text-yellow-400" />
+            ))}
+            <span className="ml-2 text-sm font-semibold text-gray-700">
+              {course.rating}
+            </span>
+          </div>
+
+          <button className="mt-4 w-full bg-blue-400 text-white text-sm font-semibold py-2 rounded-md shadow-md hover:bg-blue-600 transition">
+            Ready To Join?
+          </button>
+        </div>
       </div>
+    </Link>
+  ))}
+</div>
+
 
       <button
         onClick={() => setShowAll(!showAll)} // Toggle the state to show all courses or only 3
