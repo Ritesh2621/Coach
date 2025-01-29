@@ -4,23 +4,142 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <section class="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+      <section class="py-10 sm:pt-16 lg:pt-24 bg-[#063343] text-white">
         <div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div class="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
             <div class="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-              <p className="text-2xl text-black font-bold font-mono">
-                Learnopedia
+              <p className="text-2xl  font-bold font-mono">
+                LearnopediaX
               </p>
-              <p class="text-base leading-relaxed text-gray-600 mt-7">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, adipisci expedita in magni error sequi eos ea, quae officiis, ex doloribus. Magnam labore ex illo?
+              <p class="text-base leading-relaxed w-[230px] mt-7">
+              Your online learning partner!!!
+              Learn a variety of courses to gain expertise in your preferred field.
               </p>
 
-              <ul class="flex items-center space-x-3 mt-9">
+             
+            </div>
+
+            <div className="ml-[-80px]">
+              <p class="text-lg font-bold tracking-widest w-[300px] uppercase">
+              Courses in Demand
+              </p>
+
+              <ul class="mt-6 space-y-4">
+                <li>
+                  <Link
+                    to="/allCourses"
+                    title=""
+                    class="flex text-base  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                    Data Analytics
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/allCourses"
+                    title=""
+                    class="flex text-base  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                   Data Science
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/allCourses"
+                    title=""
+                    class="flex text-base  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                    Business Analytics
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/allCourses"
+                    title=""
+                    class="flex text-md  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                   Business Analysis
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/allCourses"
+                    title=""
+                    class="flex text-base  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                   Cloud Computing
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="ml-[50px] w-[250px]">
+              <p class="text-lg font-bold tracking-widest  uppercase">
+                Terms
+              </p>
+
+              <ul class="mt-6 space-y-4">
+                <li>
+                  <Link
+                    to="/"
+                    title=""
+                    class="flex text-base  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                    Customer Support
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/"
+                    title=""
+                    class="flex text-base transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                    Delivery Details
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/"
+                    title=""
+                    class="flex text-base  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to="/"
+                    title=""
+                    class="flex text-base  transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-32">
+              <p class="text-lg font-bold tracking-widest  uppercase">
+                Contact
+              </p>
+              <p className="mt-6">Office No 612,6th Floor</p>
+              <p>The Space Kharadi</p>
+              <p>Pune</p>
+
+              <p className="mt-6">+91-8484847595</p>
+
+              <ul class="flex items-center space-x-3 mt-6">
                 <li>
                   <Link
                     href="#"
                     title=""
-                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-blue-600 focus:bg-blue-600"
+                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
                     <svg
                       class="w-4 h-4"
@@ -37,7 +156,7 @@ const Footer = () => {
                   <Link
                     href="#"
                     title=""
-                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-blue-600 focus:bg-blue-600"
+                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
                     <svg
                       class="w-4 h-4"
@@ -54,7 +173,7 @@ const Footer = () => {
                   <Link
                     href="#"
                     title=""
-                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-blue-600 focus:bg-blue-600"
+                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
                     <svg
                       class="w-4 h-4"
@@ -73,7 +192,7 @@ const Footer = () => {
                   <Link
                     href="#"
                     title=""
-                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-blue-600 focus:bg-blue-600"
+                    class="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-10 h-10 hover:bg-blue-600 focus:bg-blue-600"
                   >
                     <svg
                       class="w-4 h-4"
@@ -91,121 +210,11 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-
-            <div>
-              <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-                Company
-              </p>
-
-              <ul class="mt-6 space-y-4">
-                <li>
-                  <Link
-                    to="/about"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    About
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="/"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    Features
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="/"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    Works
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="/"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    Career
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-                Help
-              </p>
-
-              <ul class="mt-6 space-y-4">
-                <li>
-                  <Link
-                    to="/"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    Customer Support
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="/"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    Delivery Details
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="/"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    Terms & Conditions
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="/"
-                    title=""
-                    class="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
-              <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-                Get to know about the latest courses offered by Learnopedia
-              </p>
-
-              <Link
-              to='allCourses'
-                type="submit"
-                class="inline-flex items-center justify-center px-6 py-4 mt-7 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700"
-              >
-                Enquire Now
-              </Link>
-            </div>
           </div>
 
-          <hr class="mt-16 mb-10 border-gray-200" />
+          <hr class="mt-14 mb-10 border-gray-200" />
 
-          <p class="text-sm text-center text-gray-600">
+          <p class="text-sm text-center ">
             © Copyright 2021, All Rights Reserved by Learnopedia
           </p>
         </div>

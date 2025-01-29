@@ -50,7 +50,7 @@ const CourseDetail = () => {
       <div className="flex justify-center items-center h-screen bg-gray-100">
         <div className="flex flex-col items-center">
           <div className="animate-spin border-t-4 border-blue-600 border-solid rounded-full w-16 h-16 mb-4"></div>
-          <p className="text-xl font-semibold text-gray-800">Loading product details...</p>
+          <p className="text-xl font-semibold text-gray-800">Loading Courses Details...</p>
         </div>
       </div>
     );
@@ -78,7 +78,7 @@ const CourseDetail = () => {
             <h2 className="text-2xl font-bold mb-4">
               Professional Certification Program In
             </h2>
-            <h1 className="text-4xl font-extrabold text-pink-400">
+            <h1 className="text-4xl font-extrabold text-white">
               {course.title}
             </h1>
             <ul className="mt-6 space-y-2">
@@ -95,7 +95,7 @@ const CourseDetail = () => {
                 <span>Get Hired by Top Organizations</span>
               </li>
             </ul>
-            <p className="mt-8 bg-pink-500 text-white w-[120px] font-bold py-2 px-4 text-center rounded hover:bg-pink-600">
+            <p className="mt-8 bg-blue-500 text-white w-[120px] font-bold py-2 px-4 text-center rounded hover:bg-pink-600">
               Join Now
             </p>
           </div>

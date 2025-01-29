@@ -6,25 +6,36 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const Card = () => {
   const [courses, setCourses] = useState([]);
   const [showAll, setShowAll] = useState(false); // State to toggle between showing all courses or only 3
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
+        setLoading(true);
         const response = await fetch("http://localhost:4000/course"); // Your API endpoint
         const data = await response.json();
         setCourses(data); // Set the course data in state
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching courses:", error);
+        setLoading(false);
       }
     };
 
     fetchCourses();
   }, []);
 
-  if (!courses.length) {
-    return <div>Loading...</div>;
-  }
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div className="flex flex-col items-center">
+          <div className="animate-spin border-t-4 border-blue-600 border-solid rounded-full w-16 h-16 mb-4"></div>
+          <p className="text-xl font-semibold text-gray-800">Loading Courses</p>
+        </div>
+      </div>
+    );
+  }
   // Slice the courses array to show only the first 3 courses if showAll is false
   const displayedCourses = showAll ? courses : courses.slice(0, 3);
 
@@ -40,7 +51,7 @@ const Card = () => {
                   <div className="flex flex-col items-center mb-6">
                    
                     <h1 className="text-lg font-bold text-center">Professional Certification Program In</h1>
-                    <h2 className="text-2xl font-extrabold text-pink-500">{course.title}</h2>
+                    <h2 className="text-2xl font-extrabold text-white">{course.title}</h2>
                   </div>
 
                   {/* Features */}
